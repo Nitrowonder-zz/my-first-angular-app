@@ -1,2 +1,25 @@
-<app-server></app-server>
-<app-server></app-server>
+<!--<label for="">Event binding example</label>-->
+<!-- event binding with event variable -->
+<!--<input type="text" class="form-control" (input)="onUpdateServerName($event)">-->
+<label for="">Two-way-databinding example</label>
+<!-- Two way databinding example -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<!--<p>{{serverName}}</p>-->
+<!-- example of property binding and event binding -->
+<button class="btn btn-primary" [disabled]="!allowNewServer"
+(click)="onCreateServer()">Add Server</button>
+
+<!-- Can use string interpolation or property binding for same result 
+via 'innerText' attribute. Common practice, use 
+string interpolation when outputting a value,
+property binding when wanting to change a property.
+DO NOT MIX THE TWO TOGETHER E.G. [property]= {{string}} -->
+<!--<p [innerText]="allowNewServer"></p>-->
+<!--<p>{{serverCreationStatus}}</p>-->
+<!-- example of structural directive ngIf -->
+<p *ngIf="serverCreated; else noServer">Server was created, server name is {{serverName}}</p>
+<ng-template #noServer>
+    <p>No server was created!</p>   
+</ng-template>
+<!-- ngFor structural directive -->
+<app-server *ngFor="let server of servers"></app-server>

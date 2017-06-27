@@ -1,1 +1,5 @@
-<p>The Server Component</p>
+<!-- example of string interpolation. Can pass variables and methods 
+ ngStyle is an attribute directive. It is in square brackets because I am
+ using property binding on top of it-->
+<p [ngStyle]="{backgroundColor: getColor()}"
+[ngClass]="{online: serverStatus === 'online'}">Server with ID {{serverId}} is {{getServerStatus()}}</p>
